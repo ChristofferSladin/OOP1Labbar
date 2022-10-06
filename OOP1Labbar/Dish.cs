@@ -12,7 +12,7 @@ namespace OOP1Labbar
         Vegan,
         Meat
     }
-
+    
     public class Dish
     {
         private string name;
@@ -20,21 +20,19 @@ namespace OOP1Labbar
         private DishType dishType;
         private int calories;
 
-        public Dish(string name, int price, int calories, DishType dishType)
+        public Dish(string name, int price, int calories, DishType dishType) // CONSTRUCTOR
         {
             this.name = name;
             this.price = price;
             this.calories = calories;
             this.dishType = dishType;
-
         }
-
         public string Name { get { return name; } }
 
         public DishType DishType { get { return dishType; } }
 
         public int Price { get { return price; } }
 
-        public int Calories { get { return calories} }
+        public int Calories { get { return calories; } }
     }
 }
