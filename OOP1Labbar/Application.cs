@@ -12,7 +12,7 @@ namespace OOP1Labbar
         {
             var lunchList = new List<Dish>();
 
-            var dish1 = new Dish("Pannkakor",50,10,DishType.Vegetarian);
+            var dish1 = new Dish("Pannkakor med sylt",50,10,DishType.Vegetarian);
             var dish2 = new Dish("Köttbullar", 70, 30, DishType.Vegetarian);
             var dish3 = new Dish("Burgare", 90, 25, DishType.Vegetarian);
 
