@@ -8,12 +8,29 @@ namespace OOP1Labbar
 {
     internal class Application
     {
+
+        public void Lab2()
+        {
+            Person person1 = new Person("Christoffer", "1999-02-21");
+            
+            Person person2 = new Person("Linnea", "2001-12-10");
+            
+            Person person3 = new Person("Filippa", "2007-08-01");
+
+            
+            Console.WriteLine(person1.Name);
+
+
+
+        }
+
+
         public void GetMenuOfDishes(List<Dish> listOfDishes, string rubrik, DishType dishType)
         {
             foreach (Dish dish in listOfDishes)
             {
                 if (dish.DishType == dishType)
-                Console.WriteLine($"\nDish: {dish.Name}\nType of food: {dish.DishType}\nPrice: {dish.Price}\nCalories: {dish.Calories}");
+                    Console.WriteLine($"\nDish: {dish.Name}\nType of food: {dish.DishType}\nPrice: {dish.Price}\nCalories: {dish.Calories}");
             }
         }
         public void Lab1()
@@ -34,7 +51,8 @@ namespace OOP1Labbar
         }
         public void Run()
         {
-            Lab1();
+            //Lab1();
+            Lab2();
         }
     }
 }
