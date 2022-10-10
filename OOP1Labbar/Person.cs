@@ -9,13 +9,19 @@ namespace OOP1Labbar
     class Person
     {
         private string birthDay;
+        private int age;
         private string name;
         public string adress;
         public int postalCode;
         public string county;
+        
 
         public Person(string _name, string _birthDay)
         {
+
+
+
+            this.age = SetAge(birthDay);
             this.name = _name;
             this.birthDay = _birthDay;
             
@@ -28,6 +34,17 @@ namespace OOP1Labbar
 
             Console.ReadKey();
             Console.Clear();
+        }
+
+        // ___________________________________________ LAB 3 _____________________________________
+
+
+        private int SetAge(string birthDay)
+        {
+            DateTime dt = DateTime.Parse(birthDay);
+            var age = DateTime.Now - dt;
+
+           return DateTime.Parse(age);
         }
 
         public string Name

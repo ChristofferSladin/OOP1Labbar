@@ -9,6 +9,13 @@ namespace OOP1Labbar
     internal class Application
     {
 
+        public void Lab3()
+        {
+
+        }
+
+
+
         public void Lab2()
         {
 
