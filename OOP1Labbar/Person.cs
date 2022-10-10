@@ -26,6 +26,9 @@ namespace OOP1Labbar
             this.postalCode = ChangePostalCode();
             this.county = ChangeCounty();
 
+            Console.ReadKey();
+            Console.Clear();
+
         }
 
         public string Name
@@ -40,19 +43,44 @@ namespace OOP1Labbar
             set { this.birthDay = value; }
         }
 
+        public string Adress
+        {
+            get { return this.adress; }
+            set { this.adress = value; }
+        }
+        public int PostalCode
+        {
+            get { return this.postalCode; }
+            set { this.postalCode = value; }
+        }
+        public string County
+        {
+            get { return this.county; }
+            set { this.county = value; }
+        }
+
+
         public string ChangeAdress()
         {
             Console.WriteLine("Adress:");
             var adress = Console.ReadLine();
 
-            return $"Adress:\n{adress}";
+            return adress;
         }
         public int ChangePostalCode()
         {
-            Console.WriteLine("Postal code:");
-            int postalCode = int.Parse(Console.ReadLine());
-
-
+            while (true)
+            {
+                Console.WriteLine("Postal code:");
+                int postalCode = int.Parse(Console.ReadLine());
+                if (postalCode> 10000 && postalCode < 99999)
+                {
+                    return postalCode;
+                    break;
+                }else
+                    Console.WriteLine("Ange ett giltigt postnummer");
+            }
+            
             return postalCode;
         }
         public string ChangeCounty()
@@ -60,7 +88,7 @@ namespace OOP1Labbar
             Console.WriteLine("County:");
             var County = Console.ReadLine();
 
-            return $"Adress:\n{County}";
+            return County;
         }
 
 

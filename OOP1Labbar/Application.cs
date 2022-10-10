@@ -11,14 +11,30 @@ namespace OOP1Labbar
 
         public void Lab2()
         {
-            Person person1 = new Person("Christoffer", "1999-02-21");
-            
-            Person person2 = new Person("Linnea", "2001-12-10");
-            
-            Person person3 = new Person("Filippa", "2007-08-01");
 
-            
-            Console.WriteLine(person1.Name);
+            bool run = true;
+            while (run)
+            {
+                Person person1 = new Person("Christoffer", "1999-02-21");
+
+                Person person2 = new Person("Linnea", "2001-12-10");
+
+                // Person person3 = new Person("Filippa", "2007-08-01");
+
+
+                if (person1.Adress.ToLower() == person2.Adress.ToLower() && person1.PostalCode == person2.PostalCode && person1.County.ToLower() == person2.County.ToLower())
+                {
+                    Console.WriteLine($"{person1.Name} and {person2.Name} have moved in together on {person1.adress} | {person1.PostalCode} | {person1.County}");
+                    run = false;    
+                }
+                else
+                {
+                    Console.WriteLine($"{person1.Name} lives seperate from {person2.Name}");
+                    Console.ReadKey();
+                }
+                    
+
+            }
 
 
 
