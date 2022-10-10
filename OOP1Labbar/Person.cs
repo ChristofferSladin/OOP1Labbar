@@ -28,7 +28,6 @@ namespace OOP1Labbar
 
             Console.ReadKey();
             Console.Clear();
-
         }
 
         public string Name
@@ -59,7 +58,6 @@ namespace OOP1Labbar
             set { this.county = value; }
         }
 
-
         public string ChangeAdress()
         {
             Console.WriteLine("Adress:");
@@ -76,12 +74,9 @@ namespace OOP1Labbar
                 if (postalCode> 10000 && postalCode < 99999)
                 {
                     return postalCode;
-                    break;
                 }else
                     Console.WriteLine("Ange ett giltigt postnummer");
             }
-            
-            return postalCode;
         }
         public string ChangeCounty()
         {
@@ -90,9 +85,5 @@ namespace OOP1Labbar
 
             return County;
         }
-
-
-
-
     }
 }
