@@ -8,76 +8,54 @@ namespace OOP1Labbar
 {
     class Person
     {
-        private string birthDay;
-        private int age;
+        private DateTime birthDay;
         private string name;
         public string adress;
         public int postalCode;
         public string county;
-        
 
-        public Person(string _name, string _birthDay)
+        public int AgeInYears
         {
+            get
+            {
+                TimeSpan TS = DateTime.Now - birthDay;
 
-
-
-            this.age = SetAge(birthDay);
-            this.name = _name;
-            this.birthDay = _birthDay;
-            
-            Console.WriteLine(name);
-            Console.WriteLine(birthDay);
-
-            this.adress = ChangeAdress();
-            this.postalCode = ChangePostalCode();
-            this.county = ChangeCounty();
-
-            Console.ReadKey();
-            Console.Clear();
+                double years = TS.TotalDays / 365.25f;  // 365 1/4 days per year
+                return Convert.ToInt32(years);
+            }
         }
 
-        // ___________________________________________ LAB 3 _____________________________________
-
-
-        private int SetAge(string birthDay)
+        public Person(DateTime birthDay, string name)
         {
-            DateTime dt = DateTime.Parse(birthDay);
-            var age = DateTime.Now - dt;
-
-           return DateTime.Parse(age);
+            this.birthDay = birthDay;
+            this.name = name;
         }
+
 
         public string Name
         {
             get { return this.name; }
             set { this.name = value; }
         }
-
-        public string BirthDay
-        {
-            get { return this.birthDay; } 
-            set { this.birthDay = value; }
-        }
-
         public string Adress
         {
             get { return this.adress; }
-            set { this.adress = value; }
+            
         }
         public int PostalCode
         {
             get { return this.postalCode; }
-            set { this.postalCode = value; }
+           
         }
         public string County
         {
             get { return this.county; }
-            set { this.county = value; }
+           
         }
 
         public string ChangeAdress()
         {
-            Console.WriteLine("Adress:");
+            Console.Write("Adress -- ");
             var adress = Console.ReadLine();
 
             return adress;
@@ -86,7 +64,7 @@ namespace OOP1Labbar
         {
             while (true)
             {
-                Console.WriteLine("Postal code:");
+                Console.Write("Postal code -- ");
                 int postalCode = int.Parse(Console.ReadLine());
                 if (postalCode> 10000 && postalCode < 99999)
                 {
@@ -97,7 +75,7 @@ namespace OOP1Labbar
         }
         public string ChangeCounty()
         {
-            Console.WriteLine("County:");
+            Console.Write("County -- ");
             var County = Console.ReadLine();
 
             return County;
