@@ -6,35 +6,78 @@ using System.Threading.Tasks;
 
 namespace OOP1Labbar
 {
+    class Book
+    {
+        private string titel;
+        private string author;
+
+        public Book(string titel, string author)
+        {
+            this.titel = titel;
+            this.author = author;
+        }
+        public string GetTitel()
+        {
+            return titel;
+        }
+        public string GetAuthor()
+        {
+            return author;
+        }
+    }
+
+
     class Library
     {
-        public List<Library> books = new List<Library>();
 
-        private string bookName;
+        public int countOfBooks;
 
 
-        // HUR SKA JAG SPARA LISTAN TILL KLASSEN, GÅR DET ENS?
-        public List<Library> AddBookToLibrary(List <Library> books)
+        public List<Book> books;
+
+        public void AddBookToLibrary()
         {
-            var books = new List<Library>();
+            var library = new Library();
+            var books = library.ReadBooksFromList();
 
-            Console.Write("Bok namn: ");
-            var bookName = Console.ReadLine();
+            Console.WriteLine("Add book to library");
 
-            books.Add(bookName);
+            Console.WriteLine("Titel");
+            var bookTitel = Console.ReadLine();
+            Console.WriteLine("Author");
+            var bookAuthor = Console.ReadLine();
 
+            var book = new Book(bookTitel, bookAuthor);
+           
+            books.Add(book);
+            library.countOfBooks = books.Count;
+
+            
+        }
+
+        public List<Book> ReadBooksFromList()
+        {
             return books;
         }
 
-        public void BorrowBook(List<Library> books)
+        public void BorrowBook()
         {
-            foreach (var book in books)
-            {
-                Console.Write(book.bookName);
-            }
+            var library = new Library();
+            var listFromLibrary = library.ReadBooksFromList();
+
+            Console.WriteLine("Wich book do you want to borrow?");
+            Console.ReadLine();
+
+            //listFromLibrary.Remove(str);
 
             Console.WriteLine("Wich book do you want to borrow?");
 
+            Console.WriteLine(books);
+
+        }
+
+        public void ReturnBook()
+        {
 
         }
     }
