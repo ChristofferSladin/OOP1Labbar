@@ -15,13 +15,13 @@ namespace OOP1Labbar
 
             //PRE EXISTING BOOKS IN LIBRARY
 
-            var book1 = new Book("Harry Potter 1", "JK Rowling");
-            var book2 = new Book("Lord Of The Rings 1", "Nameless");
-            var book3 = new Book("The Alchemist", "Paulo Cohelo");
+            //var book1 = new Book("Harry Potter 1", "JK Rowling");
+            //var book2 = new Book("Lord Of The Rings 1", "Nameless");
+            //var book3 = new Book("The Alchemist", "Paulo Cohelo");
 
-            library.AddBook(book1);
-            library.AddBook(book2);
-            library.AddBook(book3);
+            library.AddBook(new Book("Harry Potter 1", "JK Rowling"));
+            library.AddBook(new Book("Lord Of The Rings 1", "Nameless"));
+            library.AddBook(new Book("The Alchemist", "Paulo Cohelo"));
 
             while (true)
             {
