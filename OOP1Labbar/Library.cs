@@ -25,55 +25,29 @@ namespace OOP1Labbar
             return author;
         }
     }
-
-
     class Library
     {
-
         public int countOfBooks;
+        private List<Book> books = new List<Book>();
 
-
-        public List<Book> books;
-
-        public void AddBookToLibrary()
+        public void AddBook(Book book)
         {
-            var library = new Library();
-            var books = library.ReadBooksFromList();
-
-            Console.WriteLine("Add book to library");
-
-            Console.WriteLine("Titel");
-            var bookTitel = Console.ReadLine();
-            Console.WriteLine("Author");
-            var bookAuthor = Console.ReadLine();
-
-            var book = new Book(bookTitel, bookAuthor);
-           
             books.Add(book);
-            library.countOfBooks = books.Count;
+        }
 
+        public void BorrowBook(List<Book> books)
+        {
             
         }
 
-        public List<Book> ReadBooksFromList()
+        public void ShowBooks()
         {
-            return books;
-        }
+            foreach (var book in books)
+            {
 
-        public void BorrowBook()
-        {
-            var library = new Library();
-            var listFromLibrary = library.ReadBooksFromList();
-
-            Console.WriteLine("Wich book do you want to borrow?");
-            Console.ReadLine();
-
-            //listFromLibrary.Remove(str);
-
-            Console.WriteLine("Wich book do you want to borrow?");
-
-            Console.WriteLine(books);
-
+                Console.WriteLine($"Title: {book.GetTitel()}\nAuthor: {book.GetAuthor()}");
+                Console.WriteLine("-------------------------------------------------------");
+            }
         }
 
         public void ReturnBook()
@@ -82,9 +56,9 @@ namespace OOP1Labbar
         }
     }
 
-    
 
-    
+
+
 
 
 

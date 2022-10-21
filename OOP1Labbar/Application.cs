@@ -12,57 +12,63 @@ namespace OOP1Labbar
         public void Lab4()
         {
             var library = new Library();
-            var books = library.ReadBooksFromList();
-            var menu = new Menu();
 
             //PRE EXISTING BOOKS IN LIBRARY
+
             var book1 = new Book("Harry Potter 1", "JK Rowling");
             var book2 = new Book("Lord Of The Rings 1", "Nameless");
             var book3 = new Book("The Alchemist", "Paulo Cohelo");
-            books.Add(book1);
-            books.Add(book2);
-            books.Add(book3);
 
-
-            
+            library.AddBook(book1);
+            library.AddBook(book2);
+            library.AddBook(book3);
 
             while (true)
             {
-                Console.WriteLine("a. Skapa ny bok\nb. Låna bok\nc. Lämna tillbaka bok\nq. Quit");
+                Console.WriteLine("a. Add book to library\nb. Borrow book\nc. Return book\nq. Quit");
                 Console.Write("Ange val: ");
 
                 var input = Console.ReadLine();
                 if (input == "a")
                 {
-                    library.AddBookToLibrary();
+                    Console.Clear();
+                    Console.WriteLine("Add a book to library");
+                    Console.Write("Name of book: "); var name = Console.ReadLine();
+                    Console.Write("Author: "); var author = Console.ReadLine();    
+
+                    library.AddBook(new Book(name, author));
+
+                    library.ShowBooks();
+
                     continue;
                 }
 
                 if (input == "b")
                 {
-                    library.BorrowBook();
+                    Console.Clear();
+                    library.ShowBooks();
+                    //library.BorrowBook();
                     continue;
                 }
 
                 if (input == "c")
                 {
+                    Console.Clear();
                     library.ReturnBook();
                     continue;
                 }
 
-                if (input == "q") break;
-
-
-                menu.ShowMenu();
-
-
-                Console.WriteLine($"Total count of books in library: {books.Count}\n");
-                Console.WriteLine("Diffrent books:");
-
-                foreach (var item in books)
+                if (input == "q")
                 {
-                    Console.WriteLine($"\n{item.GetTitel()}\n{item.GetAuthor()}");
+                    Console.Clear();
+                    Console.WriteLine("\n\n\nThank You Come Again\n\n\n");
+                    Console.ReadKey();
+                    break;
                 }
+                
+
+                Console.WriteLine("Diffrent books:");
+                
 
             }
 
