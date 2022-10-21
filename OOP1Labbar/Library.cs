@@ -10,6 +10,7 @@ namespace OOP1Labbar
     {
         private string titel;
         private string author;
+        public int countOfBooks;
 
         public Book(string titel, string author)
         {
@@ -27,7 +28,6 @@ namespace OOP1Labbar
     }
     class Library
     {
-        public int countOfBooks;
         private List<Book> books = new List<Book>();
 
         public void AddBook(Book book)
@@ -40,7 +40,7 @@ namespace OOP1Labbar
             
         }
 
-        public void ShowBooks()
+        public List<Book> ShowBooks()
         {
             foreach (var book in books)
             {
@@ -48,6 +48,8 @@ namespace OOP1Labbar
                 Console.WriteLine($"Title: {book.GetTitel()}\nAuthor: {book.GetAuthor()}");
                 Console.WriteLine("-------------------------------------------------------");
             }
+
+            return books;
         }
 
         public void ReturnBook()

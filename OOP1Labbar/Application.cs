@@ -12,6 +12,7 @@ namespace OOP1Labbar
         public void Lab4()
         {
             var library = new Library();
+            
 
             //PRE EXISTING BOOKS IN LIBRARY
 
@@ -31,7 +32,8 @@ namespace OOP1Labbar
                 var input = Console.ReadLine();
                 if (input == "a")
                 {
-                    Console.Clear();
+                    var book = new Book("", "");
+                    
                     Console.WriteLine("Add a book to library");
                     Console.Write("Name of book: "); var name = Console.ReadLine();
                     Console.Write("Author: "); var author = Console.ReadLine();    
@@ -39,6 +41,24 @@ namespace OOP1Labbar
                     library.AddBook(new Book(name, author));
 
                     library.ShowBooks();
+
+                    Console.Clear();
+                    Console.Write("Name of book: "); var myValue = Console.ReadLine();
+
+
+                    var obj = library.ShowBooks().FirstOrDefault(x => x.GetTitel() == myValue);
+
+                    if (obj != null)
+                    {
+                        book.countOfBooks++;
+                    }
+
+
+                    foreach (var book in library.ShowBooks())
+                    {
+                        Console.WriteLine($"{book.GetTitel()} {book.GetAuthor()} {book.countOfBooks}");
+                    }
+
 
                     continue;
                 }
