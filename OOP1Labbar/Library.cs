@@ -6,56 +6,31 @@ using System.Threading.Tasks;
 
 namespace OOP1Labbar
 {
-    class Book
-    {
-        private string titel;
-        private string author;
-        public int countOfBooks;
-
-        public Book(string titel, string author)
-        {
-            this.titel = titel;
-            this.author = author;
-        }
-        public string GetTitel()
-        {
-            return titel;
-        }
-        public string GetAuthor()
-        {
-            return author;
-        }
-    }
     class Library
     {
         private List<Book> books = new List<Book>();
 
-        public void AddBook(Book book)
+        public void AddBook(string title, int count)
         {
-            books.Add(book);
+            var book = FindBook(title);
+            if (book == null)
+            {
+                books.Add(book);
+            }
+            book.AddCountOfEx(count);
         }
 
-        public void BorrowBook(List<Book> books)
-        {
-            
-        }
-
-        public List<Book> ShowBooks()
+        public Book FindBook(string title)
         {
             foreach (var book in books)
             {
-
-                Console.WriteLine($"Title: {book.GetTitel()}\nAuthor: {book.GetAuthor()}");
-                Console.WriteLine("-------------------------------------------------------");
+                if (book.Title == title)
+                    return book;
             }
-
-            return books;
+            return null;
         }
 
-        public void ReturnBook()
-        {
-
-        }
+        
     }
 
 

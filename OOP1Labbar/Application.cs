@@ -12,7 +12,7 @@ namespace OOP1Labbar
         public void Lab4()
         {
             var library = new Library();
-            
+
 
             //PRE EXISTING BOOKS IN LIBRARY
 
@@ -20,9 +20,8 @@ namespace OOP1Labbar
             //var book2 = new Book("Lord Of The Rings 1", "Nameless");
             //var book3 = new Book("The Alchemist", "Paulo Cohelo");
 
-            library.AddBook(new Book("Harry Potter 1", "JK Rowling"));
-            library.AddBook(new Book("Lord Of The Rings 1", "Nameless"));
-            library.AddBook(new Book("The Alchemist", "Paulo Cohelo"));
+           
+            
 
             while (true)
             {
@@ -32,49 +31,22 @@ namespace OOP1Labbar
                 var input = Console.ReadLine();
                 if (input == "a")
                 {
-                    var book = new Book("", "");
-                    
-                    Console.WriteLine("Add a book to library");
-                    Console.Write("Name of book: "); var name = Console.ReadLine();
-                    Console.Write("Author: "); var author = Console.ReadLine();    
-
-                    library.AddBook(new Book(name, author));
-
-                    library.ShowBooks();
-
-                    Console.Clear();
-                    Console.Write("Name of book: "); var myValue = Console.ReadLine();
-
-
-                    var obj = library.ShowBooks().FirstOrDefault(x => x.GetTitel() == myValue);
-
-                    if (obj != null)
-                    {
-                        book.countOfBooks++;
-                    }
-
-
-                    foreach (var book in library.ShowBooks())
-                    {
-                        Console.WriteLine($"{book.GetTitel()} {book.GetAuthor()} {book.countOfBooks}");
-                    }
-
+                    Console.Write("Book Title: "); var title = Console.ReadLine();
+                    Console.Write("Amount: "); var count = int.Parse(Console.ReadLine());
+                    library.AddBook(title, count);
 
                     continue;
                 }
 
                 if (input == "b")
                 {
-                    Console.Clear();
-                    library.ShowBooks();
-                    //library.BorrowBook();
+                    
                     continue;
                 }
 
                 if (input == "c")
                 {
-                    Console.Clear();
-                    library.ReturnBook();
+                    
                     continue;
                 }
 
@@ -86,10 +58,6 @@ namespace OOP1Labbar
                     break;
                 }
                 
-
-                Console.WriteLine("Diffrent books:");
-                
-
             }
 
 
